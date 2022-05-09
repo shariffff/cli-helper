@@ -11826,3 +11826,7 @@ input{
 body{
   padding-top: 30px;
 }
+
+code.card {display: flex;align-items: center;justify-content: space-between;}
+
+code.card button {max-width: 10%;margin-left: 10px;}
