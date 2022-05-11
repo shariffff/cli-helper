@@ -12,6 +12,7 @@ function App() {
 				</label>
 				<div className="control">
 					<input
+						autocomplete="false"
 						className="input"
 						type="text"
 						name="source"
@@ -27,6 +28,7 @@ function App() {
 				</label>
 				<div className="control">
 					<input
+						autocomplete="false"
 						className="input"
 						type="text"
 						name="destination"
@@ -56,8 +58,9 @@ function App() {
 				</button>
 			</code>
 			<code className="card">
-				wp search-replace @{target} @{source} --skip-themes --skip-plugins
-				<span></span>
+				<span>
+					wp search-replace @{target} @{source} --skip-themes --skip-plugins
+				</span>
 				<button className="button" aria-label="Copy to clipboard">
 					📋
 				</button>
