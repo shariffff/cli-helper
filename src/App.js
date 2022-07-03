@@ -1,9 +1,12 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
+import Multisite from './Multisite';
+import Single from './Single';
 
 function App() {
-	const [source, setSouce] = useState('');
+	const [source, setSource] = useState('');
 	const [target, setTarget] = useState('');
+	const [network, setNetwork] = useState(false);
 	return (
 		<div className="App container">
 			<div className="field">
@@ -12,13 +15,13 @@ function App() {
 				</label>
 				<div className="control">
 					<input
-						autocomplete="false"
+						autoComplete="false"
 						className="input"
 						type="text"
 						name="source"
 						id="source"
 						value={source}
-						onChange={(e) => setSouce(e.target.value)}
+						onChange={(e) => setSource(e.target.value)}
 					/>
 				</div>
 			</div>
@@ -28,7 +31,7 @@ function App() {
 				</label>
 				<div className="control">
 					<input
-						autocomplete="false"
+						autoComplete="false"
 						className="input"
 						type="text"
 						name="destination"
@@ -38,45 +41,32 @@ function App() {
 					/>
 				</div>
 			</div>
-
-			<code className="card">
-				<span>
-					wp search-replace {source} {target} --skip-themes --skip-plugins
-				</span>
-				<button className="button" aria-label="Copy to clipboard">
-					📋
-				</button>
-			</code>
-			<code className="card">
-				<span>
-					wp search-replace http://{target} https://{target} --skip-themes
-					--skip-plugins
-				</span>
-
-				<button className="button" aria-label="Copy to clipboard">
-					📋
-				</button>
-			</code>
-			<code className="card">
-				<span>
-					wp search-replace @{target} @{source} --skip-themes --skip-plugins
-				</span>
-				<button className="button" aria-label="Copy to clipboard">
-					📋
-				</button>
-			</code>
-			<code className="card">
-				<span>wp option update upload_path ''</span>
-				<button className="button" aria-label="Copy to clipboard">
-					📋
-				</button>
-			</code>
-			<code className="card">
-				<span>wp cache flush</span>
-				<button className="button" aria-label="Copy to clipboard">
-					📋
-				</button>
-			</code>
+			<div className="field">
+				<label className="label" htmlFor="destination">
+					Network
+				</label>
+				<div className="control">
+					<input
+						className=""
+						type="checkbox"
+						name="network"
+						id="network"
+						checked={network}
+						onChange={() => setNetwork(!network)}
+					/>
+				</div>
+			</div>
+			<div>
+				{network ? (
+					<Multisite source={source} target={target} />
+				) : (
+					<Single source={source} target={target} />
+				)}
+				<code>
+					wp option update upload_path '' --skip-themes --skip-plugins
+				</code>
+				<code>wp hosting clearcache all</code>
+			</div>
 		</div>
 	);
 }

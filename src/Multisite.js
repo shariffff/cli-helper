@@ -1,34 +1,20 @@
 function Multisite({ source, target }) {
 	return (
-		<>
-			<code className="card">
-				<span>
-					wp search-replace {source} {target} --url={target} --network
-					--skip-plugins --skip-themes
-				</span>
-				<button className="button" aria-label="Copy to clipboard">
-					📋
-				</button>
+		<div className="card">
+			<code>
+				wp search-replace {source} {target} --url={target} --network
+				--skip-plugins --skip-themes
 			</code>
-			<code className="card">
-				<span>
-					wp search-replace http://{target} https://{target}
-					--url={target} --network --skip-plugins --skip-themes
-				</span>
-				<button className="button" aria-label="Copy to clipboard">
-					📋
-				</button>
+			<code>
+				wp search-replace http://{target} https://
+				{target}
+				--url={target} --network --skip-plugins --skip-themes
 			</code>
-			<code className="card">
-				<span>
-					wp search-replace @{target} @{source} --url={target} --network
-					--skip-plugins --skip-themes
-				</span>
-				<button className="button" aria-label="Copy to clipboard">
-					📋
-				</button>
+			<code>
+				wp search-replace @{target} @{source} --url={target} --network
+				--skip-plugins --skip-themes
 			</code>
-		</>
+		</div>
 	);
 }
 export default Multisite;
