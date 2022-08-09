@@ -9,7 +9,7 @@ export default function Single({ source, target }) {
 				--skip-plugins
 			</code>
 			<code>
-				wp search-replace @{target} @{source} --skip-themes --skip-plugins
+				wp search-replace @{target} @{  source.startsWith('www.') ? source.replace('www.', '') : source } --skip-themes --skip-plugins
 			</code>
 		</div>
 	);
