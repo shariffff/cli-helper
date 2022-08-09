@@ -63,9 +63,8 @@ function App() {
 					<Single source={source} target={target} />
 				)}
 				<code>
-					wp option update upload_path '' --skip-themes --skip-plugins
+					wp option update upload_path '' --skip-themes --skip-plugins && wp hosting clearcache all
 				</code>
-				<code>wp hosting clearcache all</code>
 			</div>
 		</div>
 	);
