@@ -263,3 +263,15 @@ code.card button {max-width: 10%;margin-left: 10px;}
     position: relative;
     vertical-align: top;
 }
+
+.visit {
+    padding: 7px 14px;
+    text-decoration: none;
+    border: 1px solid #fff;
+    margin-left: 10px;
+}
+
+.control {
+    display: flex;
+    align-items: flex-start;
+}

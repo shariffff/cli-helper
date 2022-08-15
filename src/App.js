@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import './App.css';
 import Multisite from './Multisite';
 import Single from './Single';
@@ -23,6 +23,7 @@ function App() {
 						value={source}
 						onChange={(e) => setSource(e.target.value)}
 					/>
+				<a className="button visit" href={`http://${source}`} target="_blank" rel="noreferrer">Visit</a>
 				</div>
 			</div>
 			<div className="field">
@@ -39,6 +40,8 @@ function App() {
 						value={target}
 						onChange={(e) => setTarget(e.target.value)}
 					/>
+				<a className="button visit" href={`http://${target}`} target="_blank" rel="noreferrer">Visit</a>
+					
 				</div>
 			</div>
 			<div className="field">
