@@ -41,7 +41,7 @@ function App() {
 						onChange={(e) => setTarget(e.target.value)}
 					/>
 				<a className="button visit" href={`http://${target}`} target="_blank" rel="noreferrer">Visit</a>
-					
+
 				</div>
 			</div>
 			<div className="field">
@@ -69,6 +69,14 @@ function App() {
 					wp option update upload_path '' --skip-themes --skip-plugins && wp hosting clearcache all
 				</code>
 			</div>
+			<hr/>
+			<h6 style={{textAlign: 'center'}}>All</h6>
+			<hr/>
+			{ !network ? (<code className="card">
+				wp search-replace {source} {target} --skip-themes --skip-plugins &&
+				wp search-replace http://{target} https://{target} --skip-themes --skip-plugins &&
+				wp search-replace @{target} @{  source.startsWith('www.') ? source.replace('www.', '') : source } --skip-themes --skip-plugins && wp option update upload_path '' --skip-themes --skip-plugins && wp hosting clearcache all
+			</code>) : ''}
 		</div>
 	);
 }
