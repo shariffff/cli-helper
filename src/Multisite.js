@@ -10,8 +10,7 @@ function Multisite({ source, target }) {
 			</code>
 			<code>
 				wp search-replace http://{target} https://
-				{target}
-				--url={target} --network --skip-plugins --skip-themes
+				{target} --url={target} --network --skip-plugins --skip-themes
 			</code>
 			<code>
 				wp search-replace @{target} @{source.startsWith('www.') ? source.replace('www.', '') : source} --url={target} --network
