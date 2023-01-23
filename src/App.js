@@ -75,7 +75,7 @@ function App() {
 			{ !network ? (<code className="card">
 				wp search-replace {source} {target} --skip-themes --skip-plugins &&
 				wp search-replace http://{target} https://{target} --skip-themes --skip-plugins &&
-				wp search-replace @{target} @{  source.startsWith('www.') ? source.replace('www.', '') : source } --skip-themes --skip-plugins && wp option update upload_path '' --skip-themes --skip-plugins && wp hosting clearcache all
+				wp search-replace @{target} @{  source.startsWith('www.') ? source.replace('www.', '') : source } --skip-themes --skip-plugins && wp option update upload_path '' --skip-themes --skip-plugins && wp hosting clearcache all --skip-plugins --skip-themes
 			</code>) : ''}
 		</div>
 	);
